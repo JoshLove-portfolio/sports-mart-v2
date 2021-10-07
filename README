@@ -1,2 +1,5 @@
 Sup ladies I am slim shady I am the leader of D12 baby
 
+Required dependencies -
+
+npm install nodemon -- usage: npm run start-dev
