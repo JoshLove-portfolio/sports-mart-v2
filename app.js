@@ -8,6 +8,9 @@ const hbs = require('hbs');
 const homeRouter = require('./pos_app/routes/home');
 const addItemRouter = require('./pos_app/routes/addItem');
 const addSellerRouter = require('./pos_app/routes/addSeller');
+const posHomeRouter = require('./pos_app/routes/posHome');
+const dataEntryHomeRouter = require('./pos_app/routes/dataEntryHome');
+const sellItemRouter = require('./pos_app/routes/sellItem');
 
 const app = express();
 
@@ -32,6 +35,9 @@ app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
 app.use('/', homeRouter);
 app.use('/addItem', addItemRouter);
 app.use('/addSeller', addSellerRouter);
+app.use('/dataEntryHome', dataEntryHomeRouter);
+app.use('/posHome', posHomeRouter);
+app.use('/sellItem', sellItemRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
