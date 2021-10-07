@@ -1,4 +1,31 @@
 {{>bootstrap_header}}
-{{>header}}
-<p>Reached the addItem route</p>
+<a>{{>header}}</a>
+<form>
+    <div class="row">
+        <div class="form-group col-md-3">
+            <label for="vendorID">Vendor ID</label>
+            <input type="text" class="form-control" id="vendorID" placeholder="000000">
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-md-3">
+            <label for="itemID">Item ID</label>
+            <input type="text" class="form-control" id="itemID" placeholder="000000">
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-md-3">
+            <label for="itemCode">Item Code</label>
+            <input type="text" class="form-control" id="itemCode" placeholder="0">
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-md-3">
+            <label for="price">Price</label>
+            <input type="text" class="form-control" id="price" placeholder="$1.00">
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary" style="margin-top: 1%">Submit</button>
+</form>
+<a>{{>footer}}</a>
 {{>bootstrap_scripts}}
