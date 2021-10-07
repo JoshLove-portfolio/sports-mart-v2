@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const hbs = require('hbs');
 
+// Routers
 const homeRouter = require('./pos_app/routes/home');
 const addItemRouter = require('./pos_app/routes/addItem');
 const addSellerRouter = require('./pos_app/routes/addSeller');
@@ -25,7 +26,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static('public'));
 
 //FIXME - should probably protect these paths in the future
 app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js')); // redirect bootstrap JS
@@ -33,11 +34,11 @@ app.use('/js', express.static(__dirname + '/node_modules/jquery/dist')); // redi
 app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css')); // redirect CSS bootstrap
 
 app.use('/', homeRouter);
-app.use('/addItem', addItemRouter);
-app.use('/addSeller', addSellerRouter);
+app.use('/dataEntryHome/addItem', addItemRouter);
+app.use('/dataEntryHome/addSeller', addSellerRouter);
 app.use('/dataEntryHome', dataEntryHomeRouter);
 app.use('/posHome', posHomeRouter);
-app.use('/sellItem', sellItemRouter);
+app.use('/posHome/sellItem', sellItemRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
