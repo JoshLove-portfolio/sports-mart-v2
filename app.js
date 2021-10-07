@@ -7,6 +7,7 @@ const hbs = require('hbs');
 
 const homeRouter = require('./pos_app/routes/home');
 const addItemRouter = require('./pos_app/routes/addItem');
+const addSellerRouter = require('./pos_app/routes/addSeller');
 
 const app = express();
 
@@ -23,8 +24,14 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//FIXME - should probably protect these paths in the future
+app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js')); // redirect bootstrap JS
+app.use('/js', express.static(__dirname + '/node_modules/jquery/dist')); // redirect JS jQuery
+app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css')); // redirect CSS bootstrap
+
 app.use('/', homeRouter);
 app.use('/addItem', addItemRouter);
+app.use('/addSeller', addSellerRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
