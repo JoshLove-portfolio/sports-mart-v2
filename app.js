@@ -5,6 +5,9 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const hbs = require('hbs');
 
+//api require
+require('./app_api/models/db');
+
 // Routers
 const homeRouter = require('./pos_app/routes/home');
 const addItemRouter = require('./pos_app/routes/addItem');
@@ -12,6 +15,7 @@ const addSellerRouter = require('./pos_app/routes/addSeller');
 const posHomeRouter = require('./pos_app/routes/posHome');
 const dataEntryHomeRouter = require('./pos_app/routes/dataEntryHome');
 const sellItemRouter = require('./pos_app/routes/sellItem');
+const apiRouter = require('./app_api/routes/Index');
 
 const app = express();
 
@@ -39,6 +43,7 @@ app.use('/dataEntryHome/addSeller', addSellerRouter);
 app.use('/dataEntryHome', dataEntryHomeRouter);
 app.use('/posHome', posHomeRouter);
 app.use('/posHome/sellItem', sellItemRouter);
+app.use('/api', apiRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
