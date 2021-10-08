@@ -15,7 +15,14 @@
                 <p>City: {{this.city}}</p>
                 <p>State: {{this.state}}</p>
                 <p>Zip Code: {{this.zipCode}}</p>
-                <p>Sub-doc Item: {{this.items.category}}</p>
+<!--                FIXME - need to figure out how to assign this variable rather than 000000-->
+                <p>Sub-doc Item:
+                    {{#each this.items}}
+                        {{#if (checkBarcode barcode)}}
+                            {{price}}
+                        {{/if}}
+                    {{/each}}
+                </p>
             </li>
         {{/each}}
     </ul>
