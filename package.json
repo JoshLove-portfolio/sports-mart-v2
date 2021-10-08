@@ -16,6 +16,7 @@
     "jquery": "^3.6.0",
     "mongoose": "^5.13.9",
     "morgan": "~1.9.1",
+    "request": "^2.88.2",
     "seedgoose": "^2.0.2"
   }
 }
