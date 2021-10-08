@@ -8,9 +8,12 @@ const apiOptions = {
 //FIXME - In reality, this probably needs to be it's own js file which is called to grab seller information from the api
 
 // Hoping to make an API call for this value
-const currentBarcode = "000000";
+const currentBarcode = "0002";
 
 hbs.registerHelper('checkBarcode', function(value) {
+    console.log('Checking: ', value);
+    console.log('Against: ', currentBarcode);
+    console.log('Result: ', value === currentBarcode);
     return value === currentBarcode;
 })
 
