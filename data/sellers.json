@@ -1,0 +1,15 @@
+[
+  {
+    "vendorID": "000001",
+    "phoneNum": "5184961234",
+    "firstName": "Josh",
+    "lastName": "Love",
+    "address": "123 Main Street",
+    "city": "Delmar",
+    "state": "NY",
+    "zipCode": "12054",
+    "items": {
+      "category": "hit sub-doc"
+    }
+  }
+]

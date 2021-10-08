@@ -2,5 +2,23 @@
 <a>{{>dataEntryHeader}}</a>
 <h1>{{title}}</h1>
 <p>Welcome to {{title}}</p>
+<p>Displaying Seller JSON</p>
+<div class="body">
+    <ul>
+        {{#each sellers}}
+            <li>
+                <p>Vendor ID: {{this.vendorID}}</p>
+                <p>Phone Number: {{this.phoneNum}}</p>
+                <p>First Name: {{this.firstName}}</p>
+                <p>Last Name: {{this.lastName}}</p>
+                <p>Address: {{this.address}}</p>
+                <p>City: {{this.city}}</p>
+                <p>State: {{this.state}}</p>
+                <p>Zip Code: {{this.zipCode}}</p>
+                <p>Sub-doc Item: {{this.items.category}}</p>
+            </li>
+        {{/each}}
+    </ul>
+</div>
 <a>{{>footer}}</a>
 {{>bootstrap_scripts}}
