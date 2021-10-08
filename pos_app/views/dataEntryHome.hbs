@@ -2,5 +2,30 @@
 <a>{{>dataEntryHeader}}</a>
 <h1>{{title}}</h1>
 <p>Welcome to {{title}}</p>
+<p>Displaying Seller JSON</p>
+<div class="body">
+    <ul>
+        {{#each sellers}}
+            <li>
+                <p>Vendor ID: {{this.vendorID}}</p>
+                <p>Phone Number: {{this.phoneNum}}</p>
+                <p>First Name: {{this.firstName}}</p>
+                <p>Last Name: {{this.lastName}}</p>
+                <p>Address: {{this.address}}</p>
+                <p>City: {{this.city}}</p>
+                <p>State: {{this.state}}</p>
+                <p>Zip Code: {{this.zipCode}}</p>
+<!--                FIXME - need to figure out how to assign this variable rather than 000000-->
+                <p>Sub-doc Item:
+                    {{#each this.items}}
+                        {{#if (checkBarcode barcode)}}
+                            {{price}}
+                        {{/if}}
+                    {{/each}}
+                </p>
+            </li>
+        {{/each}}
+    </ul>
+</div>
 <a>{{>footer}}</a>
 {{>bootstrap_scripts}}

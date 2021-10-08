@@ -1,0 +1,59 @@
+
+  {
+  "0": {
+        "vendorID": "000001",
+        "phoneNum": "5184961234",
+        "firstName": "Josh",
+        "lastName": "Love",
+        "address": "123 Main Street",
+        "city": "Delmar",
+        "state": "NY",
+        "zipCode": "12054",
+        "items": [
+        ]
+      },
+    "1": {
+      "vendorID": "000002",
+      "phoneNum": "5184965243",
+      "firstName": "Ryan",
+      "lastName": "Greenman",
+      "address": "124 Main Street",
+      "city": "Delmar",
+      "state": "NY",
+      "zipCode": "12054",
+      "items": [
+        {
+          "barcode": "0002",
+          "category": "2",
+          "price": "$50.00"
+        },
+        {
+          "barcode": "0003",
+          "category": "5",
+          "price": "$10.00"
+        }
+      ]
+    },
+    "2": {
+      "vendorID": "000003",
+      "phoneNum": "5184960000",
+      "firstName": "Kirk",
+      "lastName": "Hooger",
+      "address": "124 Slum Street",
+      "city": "Delmar",
+      "state": "NY",
+      "zipCode": "12054",
+      "items": [
+        {
+          "barcode": "0004",
+          "category": "2",
+          "price": "$5000.00"
+        },
+        {
+          "barcode": "0002",
+          "category": "5",
+          "price": "$1.00"
+        }
+      ]
+    }
+  }
