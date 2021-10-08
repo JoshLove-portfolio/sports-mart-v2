@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 
 const itemSchema = new mongoose.Schema({
-    barcode: {type: String},
-    category: {type: String},
-    price: {type: String}
+    barcode: {type: String, required: true},
+    category: {type: String, required: true},
+    price: {type: String, required: true}
 })
 
 //FIXME - there's probably some better types out there than just strings?
@@ -18,3 +18,5 @@ const sellerSchema = new mongoose.Schema({
     zipCode: {type: String, required: true},
     items: [itemSchema]
 })
+
+module.exports = mongoose.model('sellers', sellerSchema);
