@@ -5,4 +5,6 @@ const sellersController = require('../controllers/sellers');
 
 router.route('/sellers').get(sellersController.sellersList);
 
+router.route('/sellers/:vendorID').get(sellersController.getSingleSeller);
+
 module.exports = router;
