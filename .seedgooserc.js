@@ -1,5 +1,5 @@
 module.exports = {
-    modelBaseDirectory: 'pos_app/models',
+    modelBaseDirectory: 'app_api/models',
     models: '*.js',
     data: 'data',
     db: 'mongodb://localhost:27017/sportsmart'
