@@ -1,49 +1,55 @@
 {{>bootstrap_header}}
 <a>{{>dataEntryHeader}}</a>
-    <form>
+    <form name="sellerForm" method="post" action="/api/sellers">
+        {{#if Success}}
+            <div class="alert alert-success" role="alert">
+                Successfully added {{Success}}!
+            </div>
+        {{/if}}
         <div class="row">
             <div class="form-group col-md-3">
                 <label for="vendorID">Vendor ID</label>
-                <input type="text" class="form-control" id="vendorID" placeholder="000000">
+                <input name="vendorID" type="text" class="form-control" id="vendorID" placeholder="000000">
             </div>
             <div class="form-group col-md-3">
                 <label for="phoneNum">Phone Number</label>
-                <input type="text" class="form-control" id="phoneNum" placeholder="###-###-####">
+                <input name="phoneNum" type="text" class="form-control" id="phoneNum" placeholder="###-###-####">
             </div>
         </div>
         <div class="row">
             <div class="form-group col-md-3">
                 <label for="firstName">First Name</label>
-                <input type="text" class="form-control" id="firstName" placeholder="John">
+                <input name="firstName" type="text" class="form-control" id="firstName" placeholder="John">
             </div>
             <div class="form-group col-md-3">
                 <label for="lastName">Last Name</label>
-                <input type="text" class="form-control" id="lastName" placeholder="Smith">
+<!--                name is superrrrrrrrr important for form post-->
+                <input name="lastName" type="text" class="form-control" id="lastName" placeholder="Smith">
             </div>
         </div>
         <div class="row">
             <div class="form-group col-md-6">
                 <label for="address">Address</label>
-                <input type="text" class="form-control" id="address" placeholder="123 Main Street">
+                <input name="address" type="text" class="form-control" id="address" placeholder="123 Main Street">
             </div>
         </div>
         <div class="row">
             <div class="form-group col-md-3">
                 <label for="city">City</label>
-                <input type="text" class="form-control" id="city" placeholder="Delmar">
+                <input name="city" type="text" class="form-control" id="city" placeholder="Delmar">
             </div>
             <div class="form-group col-md-2">
                 <label for="state">State</label>
-                <input type="text" class="form-control" id="state" placeholder="NY">
+                <input name="state" type="text" class="form-control" id="state" placeholder="NY">
             </div>
             <div class="form-group col-md-1">
                 <div class="form-group">
                     <label for="zipCode">Zip Code</label>
-                    <input type="text" class="form-control" id="zipCode" placeholder="12054">
+                    <input name="zipCode" type="text" class="form-control" id="zipCode" placeholder="12054">
                 </div>
             </div>
         </div>
-        <button type="submit" class="btn btn-primary" style="margin-top: 1%">Submit</button>
+        <button name="submit" id="submit" type="submit" class="btn btn-primary" style="margin-top: 1%">Submit</button>
     </form>
 <a>{{>footer}}</a>
 {{>bootstrap_scripts}}
