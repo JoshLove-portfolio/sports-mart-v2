@@ -4,43 +4,33 @@ const apiOptions = { //FIXME - this won't work long term
     server: 'http://localhost:3000'
 };
 
-const addSeller = (req, res) => {
+const addSeller = async (req, res) => {
     if (req.query.success) {
-        //FIXME - I'd really like to get the first/last name of the vendor passed back from query string but I can't figure this out
-        //FIXME - attempt down below
-        //let result;
-        //result = getSellerName(req.query.success);
-
-        res.render('addSeller', {success: req.query.success});
+        let result = await getSellerName(req.query.success);
+        res.render('addSeller', {firstName: result[0].firstName, lastName: result[0].lastName, success: req.query.success});
     } else {
         res.render('addSeller');
     }
 };
 
-//FIXME - why is this called twice?
+const getSellerName = (vendorID) => {
+    return new Promise((resolve, reject) => {
+        const path = '/api/sellers/';
+        const requestOption = {
+            url: `${apiOptions.server}${path}${vendorID}`,
+            method: 'GET',
+            json: {}
+        }
 
-// const getSellerName = (vendorID) => {
-//     const path = '/api/sellers/';
-//     const requestOptions = {
-//         url: `${apiOptions.server}${path}${vendorID}`,
-//         method: 'GET',
-//         json: {}
-//     };
-//
-//     let result;
-//
-//     request(
-//         requestOptions,
-//         (err, { statusCode }, body) => {
-//         result = body;
-//         if (err) {
-//             console.error(err);
-//         }
-//             return body;
-//         }
-//         )
-//
-//     return result;
-// }
+        request(requestOption, function(err, response, body) {
+            if (err) {
+                console.log('New vendor error: ', err);
+                return reject(err);
+            } else {
+                return resolve(body);
+            }
+        })
+    })
+}
 
 module.exports = {addSeller}
