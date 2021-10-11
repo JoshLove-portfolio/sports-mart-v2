@@ -1,5 +1,29 @@
 const mongoose = require('mongoose');
+const express = require("express");
 const model = mongoose.model('sellers');
+
+//SET for seller
+const addSeller = async (req, res) => {
+    model.create({
+        vendorID: req.body.vendorID,
+        phoneNum: req.body.phoneNum,
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        address: req.body.address,
+        city: req.body.city,
+        state: req.body.state,
+        zipCode: req.body.zipCode
+    },
+        (err, seller) => {
+        if(err) {
+            console.log(err)
+            return res.status(404).json(err);
+        } else {
+            const string = encodeURIComponent(req.body.vendorID);
+            res.redirect('/dataEntryHome/addSeller/?success=' + string);
+        }
+        })
+}
 
 //GET for all sellers
 const sellersList = async (req, res) => {
@@ -32,5 +56,6 @@ const getSingleSeller = async (req, res) => {
 
 module.exports = {
     sellersList,
-    getSingleSeller
+    getSingleSeller,
+    addSeller
 };
