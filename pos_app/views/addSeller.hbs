@@ -3,7 +3,7 @@
     <form name="sellerForm" method="post" action="/api/sellers">
         {{#if success}}
             <div class="alert alert-success col-md-6" role="alert">
-                Successfully added vendor #{{success}}!
+                Successfully added {{firstName}} {{lastName}} with Vendor ID: {{success}}!
             </div>
         {{/if}}
         <div class="row">
