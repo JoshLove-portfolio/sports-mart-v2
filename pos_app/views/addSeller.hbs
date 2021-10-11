@@ -1,9 +1,9 @@
 {{>bootstrap_header}}
 <a>{{>dataEntryHeader}}</a>
     <form name="sellerForm" method="post" action="/api/sellers">
-        {{#if Success}}
-            <div class="alert alert-success" role="alert">
-                Successfully added {{Success}}!
+        {{#if success}}
+            <div class="alert alert-success col-md-6" role="alert">
+                Successfully added vendor #{{success}}!
             </div>
         {{/if}}
         <div class="row">
