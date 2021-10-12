@@ -1,6 +1,10 @@
 // Display homepage
 const addItem = (req, res) => {
-    res.render('addItem');
+    if (req.query.id) {
+        res.render('addItem', {id: req.query.id});
+    } else {
+        res.render('addItem');
+    }
 };
 
 module.exports = {addItem}

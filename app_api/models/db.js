@@ -3,6 +3,7 @@ const readLine = require('readline');
 
 let dbURL = 'mongodb://localhost:27017/sportsmart';
 
+//FIXME - turn off in the future
 mongoose.set('debug', true);
 
 const connect = () => {
