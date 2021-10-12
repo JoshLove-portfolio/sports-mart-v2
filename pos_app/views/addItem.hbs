@@ -2,6 +2,8 @@
 <a>{{>dataEntryHeader}}</a>
 {{#if id}}
     <form action="/api/addItem/{{id}}" method="post">
+        <button type="reset" class="btn btn-primary col-md-1" style="margin-top: 1%">Reset Form</button>
+        <a href="/dataEntryHome/addItem/" class="btn btn-primary col-md-1 offset-1" style="margin-top: 1%">Back</a>
         {{#if success}}
             <div class="alert alert-success col-md-6" role="alert">
                 Successfully added item category {{success}}!
@@ -13,6 +15,7 @@
                 <input name="id" type="text" class="form-control" id="vendorID" placeholder="000000" value="{{id}}" readonly>
             </div>
         </div>
+<!--        FIXME - There's some issues here with lining up the columns? -->
         <div class="row">
             <div class="form-group col-md-3">
                 <label for="barcode">Item ID</label>
