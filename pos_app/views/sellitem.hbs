@@ -1,28 +1,16 @@
 {{>bootstrap_header}}
 <a>{{>posHeader}}</a>
-<form>
+<form method="post" action="/api/sellItem">
     <div class="row">
         <div class="form-group col-md-3">
-            <label for="vendorID">Vendor ID</label>
-            <input type="text" class="form-control" id="vendorID" placeholder="000000">
-        </div>
-    </div>
-    <div class="row">
-        <div class="form-group col-md-3">
-            <label for="itemID">Item ID</label>
-            <input type="text" class="form-control" id="itemID" placeholder="000000">
-        </div>
-    </div>
-    <div class="row">
-        <div class="form-group col-md-3">
-            <label for="itemCode">Item Code</label>
-            <input type="text" class="form-control" id="itemCode" placeholder="0">
+            <label for="barcode">Barcode</label>
+            <input name="barcode" type="text" class="form-control" id="barcode" placeholder="000000">
         </div>
     </div>
     <div class="row">
         <div class="form-group col-md-3">
             <label for="price">Price</label>
-            <input type="text" class="form-control" id="price" placeholder="$1.00">
+            <input name="price" type="text" class="form-control" id="price" placeholder="$1.00">
         </div>
     </div>
     <button type="submit" class="btn btn-primary" style="margin-top: 1%">Submit</button>
