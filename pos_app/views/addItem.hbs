@@ -2,6 +2,11 @@
 <a>{{>dataEntryHeader}}</a>
 {{#if id}}
     <form action="/api/addItem/{{id}}" method="post">
+        {{#if success}}
+            <div class="alert alert-success col-md-6" role="alert">
+                Successfully added item category {{success}}!
+            </div>
+        {{/if}}
         <div class="row">
             <div class="form-group col-md-3">
                 <label for="vendorID">Vendor ID</label>

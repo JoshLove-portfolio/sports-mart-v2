@@ -19,7 +19,8 @@ const addItem = async (req, res) => {
                 console.log(err);
                 return res.status(404).json(err);
             } else {
-                return res.status(200).json(addItem);
+                const string = encodeURIComponent(req.body.category);
+                res.redirect(`/dataEntryHome/addItem/?id=${req.params.vendorID}&success=` + string);
             }
         })
 }
