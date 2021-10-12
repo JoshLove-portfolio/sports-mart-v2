@@ -40,7 +40,7 @@ const sellersList = async (req, res) => {
 };
 
 const getSingleSeller = async (req, res) => {
-    model.find({'vendorID': req.params.vendorID})
+    model.find({vendorID: req.params.vendorID})
         .exec((err, seller) => {
             if(!seller) {
                 return res.status(404).json({"message": "Seller not found"});
