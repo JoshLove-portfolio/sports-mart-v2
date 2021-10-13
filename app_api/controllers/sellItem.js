@@ -4,35 +4,47 @@ const model = mongoose.model('sellers');
 
 const sellItem = async (req, res) => {
 
-    await model.findOne({"items.active.barcode": req.body.barcode}).then((doc) => {
-        let result = doc.items;
-        console.log(result[0].active);
-    })
+    let result;
 
-    // model.updateOne({barcode: req.body.barcode},
-    //     {
-    //         $pull: {
-    //             items: {
-    //                 active: {barcode: req.body.barcode}
-    //             }
-    //         },
-    //         $push: {
-    //             items: {
-    //                 sold: {barcode: req.body.barcode}
-    //             }
-    //         }
-    //     },
-    //     null,
-    //     (err, addItem) => {
-    //         if (err) {
-    //             console.log(err);
-    //             return res.status(404).json(err);
-    //         } else {
-    //             return res.status(200);
-    //             // const string = encodeURIComponent(req.body.category);
-    //             // res.redirect(`/dataEntryHome/addItem/?id=${req.params.vendorID}&success=` + string);
-    //         }
-    //     })
+    await model.findOne({"items.active.barcode": req.body.barcode}).then((doc) => {
+        let iter = doc.items.active;
+        //FIXME - wondering if there's a more efficient way to do this
+        for (let i = 0; i < iter.length; i++) {
+            if (iter[i].barcode === req.body.barcode) {
+                result = iter[i];
+            }
+        }
+    });
+
+    await model.updateOne({"items.active.barcode": req.body.barcode},
+        {
+            $pull: {
+                "items.active": {
+                    barcode: req.body.barcode
+                }
+            },
+            $push: {
+                "items.sold": {
+                    barcode: result.barcode,
+                    category: result.category,
+                    price: result.price
+                }
+            },
+            $inc: {
+                "salesFigures.totalSold": result.price,
+                "salesFigures.vendorCut": result.price * .75,
+                "salesFigures.troopCut": result.price * .25
+            }
+        },
+        null,
+        (err, updateItem) => {
+        if(err){
+            console.log(err);
+            return res.status(404).json(err);
+        } else {
+            res.redirect('/posHome/sellItem');
+        }
+        });
 }
 
 module.exports = {sellItem};
