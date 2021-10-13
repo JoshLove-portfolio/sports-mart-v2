@@ -42,7 +42,8 @@ const sellItem = async (req, res) => {
             console.log(err);
             return res.status(404).json(err);
         } else {
-            res.redirect('/posHome/sellItem');
+            const string = encodeURIComponent(result.barcode);
+            res.redirect(`/posHome/sellItem?id=${string}`);
         }
         });
 }

@@ -1,5 +1,10 @@
 {{>bootstrap_header}}
 <a>{{>posHeader}}</a>
+{{#if id}}
+    <div class="alert alert-success col-md-6" role="alert">
+        Sold! Item sold with barcode #{{id}} <button class="btn btn-primary">Print Receipt</button>
+    </div>
+{{/if}}
 <form method="post" action="/api/sellItem">
     <div class="row">
         <div class="form-group col-md-3">
