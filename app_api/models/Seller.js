@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const itemSchema = new mongoose.Schema({
     barcode: {type: String, required: true, index: true},
     category: {type: String, required: true},
-    price: {type: String, required: true}
+    price: {type: Number, required: true}
 })
 
 const itemTotalSchema = new mongoose.Schema({
@@ -12,7 +12,7 @@ const itemTotalSchema = new mongoose.Schema({
 });
 
 const salesFigureSchema = new mongoose.Schema({
-    totalSold: {type: String, required: true},
+    totalSold: {type: Number, required: true},
     vendorCut: {type: Number, required: true},
     troopCut: {type: Number, require: true},
 })
